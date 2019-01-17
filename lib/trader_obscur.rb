@@ -26,18 +26,33 @@ end
  currencies = {} 
  array_symbol_names.zip(array_prices) {|a,b| currencies[a] = b }
 
+ array_of_hashes = []
 
 
-array_of_arrays = []
-
- currencies.each do |x|
-    array_of_arrays << x
- end
-
-
-final_table = []
-array_of_arrays.each do |r| 
-    final_table << {array_symbol_names[r] => array_prices[r]}
+currencies.each {|k, v| v[0] = ""}
+currencies.transform_values!(&:to_f)
+currencies.each do |key, value|
+    hash = Hash.new
+    hash[key] = value
+    array_of_hashes << hash
 end
 
-print final_table
+print array_of_hashes
+
+
+
+
+
+
+
+
+
+
+
+
+# final_table = []
+# array_of_arrays.each do |r| 
+#     final_table << {array_symbol_names[0] => array_prices[0]}
+# end
+
+# print final_table
