@@ -65,7 +65,7 @@ require 'open-uri'
         array_final << array_annuaire
     end
 
-    print array_final
+    puts array_final
 
 
     
