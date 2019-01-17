@@ -2,17 +2,22 @@ require 'rubygems'
 require 'nokogiri'   
 require 'open-uri'
 
+def as
 page = Nokogiri::HTML(open('https://coinmarketcap.com/all/views/all/'))
 #all_symbol_names = page.xpath('//*[@class="text-left col-symbol"]')
 #all_prices = page.xpath('//*[@class="price"]')
 
+# récuperation des symbol des cours des cryptomonnaies
+all_symbol_names = page.xpath('//*/td[3]')
+
+# récuperation des cours des cryptomonnaies
+all_prices = page.xpath('//*/td[5]/a')
+
 def trading (page)
 
-    # récuperation des symbol des cours des cryptomonnaies
-    all_symbol_names = page.xpath('//*/td[3]')
+    
 
-    # récuperation des cours des cryptomonnaies
-    all_prices = page.xpath('//*/td[5]/a')
+    
 
 
     # création d'un array avec les symboles
