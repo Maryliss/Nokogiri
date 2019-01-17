@@ -7,15 +7,37 @@ page = Nokogiri::HTML(open('https://coinmarketcap.com/all/views/all/'))
 #all_prices = page.xpath('//*[@class="price"]')
 
 all_symbol_names = page.xpath('//*/td[3]')
-all_prices = page.xpath('//*/td[5]')
+all_prices = page.xpath('//*/td[5]/a')
 
-puts all_symbol_names.length
-puts all_prices.length
 
+
+array_symbol_names = []
 all_symbol_names.each do |name|
-puts name.text
+    array_symbol_names << name.text
 end
 
+
+array_prices = []
 all_prices.each do |price|
-puts price.text
+    array_prices << price.text
 end
+
+
+ currencies = {} 
+ array_symbol_names.zip(array_prices) {|a,b| currencies[a] = b }
+
+
+
+array_of_arrays = []
+
+ currencies.each do |x|
+    array_of_arrays << x
+ end
+
+
+final_table = []
+array_of_arrays.each do |r| 
+    final_table << {array_symbol_names[r] => array_prices[r]}
+end
+
+print final_table
