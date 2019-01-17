@@ -14,7 +14,6 @@ def get_townhall_email(townhall_url)
     
     a = townhall_url.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]')
     
-    puts a.text
 end
 
 
@@ -76,4 +75,4 @@ hash_annuaire.each do |key, value|
     array_final << array_annuaire
 end
 
-return array_final
+print array_final
