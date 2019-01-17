@@ -31,6 +31,8 @@ end
 
 currencies.each {|k, v| v[0] = ""}
 currencies.transform_values!(&:to_f)
+
+
 currencies.each do |key, value|
     hash = Hash.new
     hash[key] = value
