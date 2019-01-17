@@ -76,4 +76,4 @@ hash_annuaire.each do |key, value|
     array_final << array_annuaire
 end
 
-puts array_final
+return array_final
