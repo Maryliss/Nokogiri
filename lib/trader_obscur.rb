@@ -7,7 +7,7 @@ require 'open-uri'
 
 
 def trading 
-
+hjhlhl
   
 page = Nokogiri::HTML(open('https://coinmarketcap.com/all/views/all/'))
 #all_symbol_names = page.xpath('//*[@class="text-left col-symbol"]')
